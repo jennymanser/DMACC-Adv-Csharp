@@ -1,19 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MovieList.Models;
+using Microsoft.AspNetCore.Mvc;
+using FirstResponsiveWebAppLastName.Models;
 
-namespace MovieList.Controllers
+namespace FirstResponsiveWebAppLastName.Controllers
 {
     public class HomeController : Controller
     {
-        private MovieContext context { get; set; }
-
-        public HomeController(MovieContext ctx) =>
-            context = ctx;
-        public IActionResult Index()
+      
+        public IActionResult Index(UserModel model)
         {
-            var movies = context.Movies.OrderBy(
-               m => m.Name) .ToList();
-            return View(movies);
+            if (ModelState.IsValid)
+            {
+                return View("Result", model);
+            }
+            return View(model);
+        }
+
+        public IActionResult Clear()
+        {
+            return RedirectToAction("Index");
         }
     }
 }

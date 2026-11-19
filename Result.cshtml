@@ -1,0 +1,9 @@
+﻿@model FirstResponsiveWebAppLastName.Models.UserModel
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h2>Result</h2>
+<p>Hello @Model.Name, your age on December 31, @FirstResponsiveWebAppLastName.Models.UserModel.CURRENT_YEAR will be <strong>@Model.AgeThisYear()</strong>.</p>
+
+<a asp-action="Index">Go Back</a>
