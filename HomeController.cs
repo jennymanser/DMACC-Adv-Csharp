@@ -1,23 +1,21 @@
-using Microsoft.AspNetCore.Mvc;
-using FirstResponsiveWebAppLastName.Models;
-
-namespace FirstResponsiveWebAppLastName.Controllers
+﻿namespace FirstResponsiveWebAppLastName.Tests
 {
-    public class HomeController : Controller
+    internal class HomeController
     {
-      
-        public IActionResult Index(UserModel model)
+        public HomeController()
         {
-            if (ModelState.IsValid)
-            {
-                return View("Result", model);
-            }
-            return View(model);
         }
 
-        public IActionResult Clear()
+        public object ModelState { get; internal set; }
+
+        internal RedirectToActionResult Clear()
         {
-            return RedirectToAction("Index");
+            throw new NotImplementedException();
+        }
+
+        internal ViewAge Index(UserModel model)
+        {
+            throw new NotImplementedException();
         }
     }
 }
